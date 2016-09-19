@@ -1,10 +1,13 @@
-var io = require('socket.io')();
+//SERVER-SIDE
 
-io.on('connection',function(socket){
-  socket.on('chat message', function(data){
-    io.emit('chat message', data);
+const io = require('socket.io')();
+
+io.on('connection', function(socket){
+
+  //Listens for 'send message' event, emits object m to all connections when a 'send message' event is received from chat.js
+  socket.on('send message', function(m){
+    io.emit('send message', m);
   });
 });
-
 
 module.exports = io;
