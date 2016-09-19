@@ -1,6 +1,6 @@
 $(function(){
   var socket = io();
-  $('.chatBox').submit(function(event){
+  $(".chatBox").submit(function(event){
     event.preventDefault();
     var message = $("#message").val();
     socket.emit('chat message', message);
